@@ -1,16 +1,6 @@
 <h1>New Article</h1>
-<%= form_with scope: :article, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+
+<!--This renders the _form.html.erb file. Similar to how php ports in the entire file -->
+<%= render 'form' %>
+<%= link_to 'Back', articles_path %><br>
+<%= link_to 'Home', controller: 'welcome' %>

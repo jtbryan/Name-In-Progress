@@ -4,3 +4,5 @@ to initialize the server, go into the Project folder and type 'rails server'
 
 to create a new controller, use 'rails generate controller Welcome index' 
     Welcome is the directory and index will be the html page
+
+CRUD (Create, Read, Update, Destroy) operations
