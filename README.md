@@ -10,10 +10,6 @@ This project is currently in development.
 
 ``In Progress``
 
-# Installation
+# Installation/Dependencies
 
-``In Progress``
-
-# Access
-
-<a href=https://jtbryan.github.io/Name-In-Progress/>Website</a>
+``gem install twitter`` - [https://github.com/sferik/twitter]
