@@ -10,6 +10,6 @@ This project is currently in development.
 
 ``In Progress``
 
-# Installation
+# Installation/Dependencies
 
-``In Progress``
+``gem install twitter`` - [https://github.com/sferik/twitter]
