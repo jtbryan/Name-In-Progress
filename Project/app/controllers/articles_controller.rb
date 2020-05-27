@@ -1,8 +1,14 @@
 class ArticlesController < ApplicationController
+    
+    # excepts specifically this name/password pair
+    http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
+    # GET /articles
     def index
         @articles = Article.all
     end
     
+    # GET /article/:id
     def show
         @article = Article.find(params[:id])
     end
@@ -15,6 +21,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    # POST /articles
     def create
         #render plain: params[:article].inspect
         # takes a simple hash with a key of :plain value of params[:article].inspect
@@ -32,6 +39,7 @@ class ArticlesController < ApplicationController
         end
     end
 
+    # POST /article/:id
     def update
         @article = Article.find(params[:id])
        
@@ -42,7 +50,8 @@ class ArticlesController < ApplicationController
         end
     end
 
-    
+
+    # DELETE /users/:id
     def destroy
         # find the article in the db
         @article = Article.find(params[:id])
