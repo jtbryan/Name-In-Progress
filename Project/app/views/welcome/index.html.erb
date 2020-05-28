@@ -3,6 +3,7 @@
         <h1 id="title">My New Website</h1>
     </header>
     <body>
+        <%= link_to @value, 'new'%>
         <%= link_to 'My Project', controller: 'articles' %><br>
         <%= link_to 'Wrong place', 'new' %>
     </body>

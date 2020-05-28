@@ -6,3 +6,5 @@ to create a new controller, use 'rails generate controller Welcome index'
     Welcome is the directory and index will be the html page
 
 CRUD (Create, Read, Update, Destroy) operations
+
+Add requirements and global variables into the config/initialize folder
