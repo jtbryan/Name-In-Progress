@@ -1,10 +1,16 @@
 <div id="page1">
+    <div class="navbar">
+        <a href="/welcome" id="info">Home</a>
+        <a>About</a>
+    </div>
     <header>
-        <h1 id="title">My New Website</h1>
+        <h1 id="title">HashScrape</h1>
     </header>
     <body>
-        <%= link_to @value, 'new'%>
-        <%= link_to 'My Project', controller: 'articles' %><br>
-        <%= link_to 'Wrong place', 'new' %>
+        <!--
+        <p><%= @value %></p><br>
+        <%= link_to @value, 'new'%><br>
+        -->
+        <%= link_to 'Get Started', {controller: 'tweets', action: 'index'}, class: "start-btn" %><br>
     </body>
 </div>

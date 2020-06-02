@@ -1,0 +1,30 @@
+// Place all the styles related to the Tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.navbar{
+    background-color: black;
+    overflow: hidden;
+    margin: 0px;
+    height: 55px;
+}
+
+.navbar a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17pt;
+}
+
+.navbar a:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#container{
+    background-image: linear-gradient( rgba(61, 201, 243, 0.705) 0%, rgb(154, 228, 250) 51%, rgb(59, 176, 230) 100%);
+    background-attachment: fixed;
+}

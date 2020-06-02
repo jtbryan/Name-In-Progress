@@ -1,0 +1,13 @@
+<div id="page2">
+    <div class="navbar">
+        <a href="/welcome" id="info">Home</a>
+        <a>About</a>
+    </div>
+    <body id="container">
+        <!-- THIS GETS THE FIRST 50 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG        -->
+        <% @value.take(1000).collect do |item| %>
+            <p><%= item.text %>==><%= item.favorite_count %></p><br>
+        <%end%>
+        <input type="text" placeholder="What">
+    </body>
+</div>

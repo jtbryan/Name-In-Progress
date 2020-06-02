@@ -1,7 +1,4 @@
 class ArticlesController < ApplicationController
-    
-    # excepts specifically this name/password pair
-    http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
     # GET /articles
     def index
