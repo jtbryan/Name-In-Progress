@@ -40,4 +40,4 @@
 /Project/yarn-debug.log*
 /Project/.yarn-integrity
 
-/Project/app/config/initializers//twitter.rb
+/Project/config/initializers/twitter.rb
