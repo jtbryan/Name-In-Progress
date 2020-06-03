@@ -1,0 +1,15 @@
+<div id="page3">
+    <div class="navbar">
+        <a href="/welcome" class="general">Home</a>
+        <a class="general">About</a>
+        <a class="user">Login</a>
+        <a class="user">Register</a>
+    </div>
+    <body id="container">
+
+        <!-- THIS GETS THE FIRST 50 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
+        <% @value.take(100).collect do |item| %>
+            <p><%= item.text %>==><%= item.favorite_count %>==><%= item.retweet_count %></p><br>
+        <%end%>
+    </body>
+</div>

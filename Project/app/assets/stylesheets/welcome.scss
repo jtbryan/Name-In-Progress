@@ -8,15 +8,22 @@
 }
 
 .navbar{
-    background-color: black;
+    background-color: rgb(28, 164, 218);
     overflow: hidden;
     margin: 0px;
-    height: 55px;
+    height: 54px;
+}
+
+.navbar .general{
+    float: left;
+}
+
+.navbar .user{
+    float: right;
 }
 
 .navbar a{
-    float: left;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -66,7 +73,6 @@
     display: inline-block;
     border-radius: 25px;
     background-image: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%);
-    transition: 0.3s;
 }
 
 #page1 .start-btn:hover{
@@ -75,8 +81,8 @@
 }
 
 #title {
-    padding-top: 250px;
-    padding-bottom: 100px;
+    padding-top: 200px;
+    padding-bottom: 50px;
     font-size: 49pt;
     color: black;
     font: arial;

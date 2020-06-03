@@ -1,16 +1,14 @@
 <div id="page1">
     <div class="navbar">
-        <a href="/welcome" id="info">Home</a>
-        <a>About</a>
+        <a href="/welcome" class="general">Home</a>
+        <a class="general">About</a>
+        <a class="user">Login</a>
+        <a class="user">Register</a>
     </div>
     <header>
         <h1 id="title">HashScrape</h1>
     </header>
     <body>
-        <!--
-        <p><%= @value %></p><br>
-        <%= link_to @value, 'new'%><br>
-        -->
         <%= link_to 'Get Started', {controller: 'tweets', action: 'index'}, class: "start-btn" %><br>
     </body>
 </div>

@@ -1,13 +1,21 @@
 <div id="page2">
     <div class="navbar">
-        <a href="/welcome" id="info">Home</a>
-        <a>About</a>
+        <a href="/welcome" class="general">Home</a>
+        <a class="general">About</a>
+        <a class="user">Login</a>
+        <a class="user">Register</a>
     </div>
     <body id="container">
-        <!-- THIS GETS THE FIRST 50 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG        -->
-        <% @value.take(1000).collect do |item| %>
-            <p><%= item.text %>==><%= item.favorite_count %></p><br>
-        <%end%>
-        <input type="text" placeholder="What">
+    <%= form_with(url: "tweets/new", method: "get", local: true, id: "search") do |f|%>
+        <%= f.label(:tweet, "Search Preference") %>
+        <div id="contain-choice">
+        <%= f.radio_button("pref", "hashtag", option = {checked: true}) %>
+        <p>Hashtag</p>
+        <%= f.radio_button("pref", "user") %>
+        <p>User</p>
+        </div>
+        <%= f.text_field(:tweet, :maxlength => 21, :placeholder => "Search...", :required => true) %>
+        <%= f.submit("Submit") %>
+    <% end %>
     </body>
 </div>

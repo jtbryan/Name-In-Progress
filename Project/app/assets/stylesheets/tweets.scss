@@ -2,29 +2,91 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.navbar{
-    background-color: black;
-    overflow: hidden;
-    margin: 0px;
-    height: 55px;
-}
-
-.navbar a{
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17pt;
-}
-
-.navbar a:hover{
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-
 #container{
     background-image: linear-gradient( rgba(61, 201, 243, 0.705) 0%, rgb(154, 228, 250) 51%, rgb(59, 176, 230) 100%);
     background-attachment: fixed;
+}
+
+#contain-choice{
+    display: block;
+}
+
+#page2{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align: center;
+    font: sans-serif;
+}
+
+#search{
+    padding-top: 200px;
+    display: block;
+}
+
+#search label{
+    font-size: 18pt;
+}
+
+#search input[type=text]{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 300px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 18pt;
+    text-indent: 10%;
+}
+
+#search input[type=text]:focus{
+    outline-width: 0;
+}
+
+#search input[type=radio]{
+    position: fixed;
+    opacity: 0;
+    margin-top: 10px;
+    width: 150px;
+    height: 50px;
+}
+
+#search input[type=radio]:hover{
+    cursor: pointer;
+}
+
+#search input[type=radio]:hover + p{
+    background-color:rgb(29, 207, 198);
+}
+
+#search input[type=radio]:checked + p{
+    background-color:rgb(187, 255, 252);
+    border-color: rgb(68, 204, 197);
+}
+
+#search input[type=submit]{
+    margin-top: 30px;
+    width: 100px;
+    height: 300px;
+}
+
+#search input[type=submit]:hover{
+    cursor: pointer;
+}
+
+#search p:hover{
+    background-color: #dfd;
+}
+
+#search p{
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    width: 100px;
 }
