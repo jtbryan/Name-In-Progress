@@ -1,0 +1,32 @@
+<div id="page3">
+    <div class="navbar">
+        <a href="/welcome" class="general">Home</a>
+        <a class="general">About</a>
+        <a class="user">Login</a>
+        <a class="user">Register</a>
+    </div>
+    <body id="container">
+        <% if @value != "Error" %>
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Tweet</th>
+                    <th>Favorites</th>
+                    <th>Retweets</th>
+                </tr>
+                <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
+                <% @value.take(100).collect do |item| %>
+                    <tr>
+                        <td><%= item.user.screen_name %></td>
+                        <td><%= item.text %></td>
+                        <td><%= item.favorite_count %></td>
+                        <td><%= item.retweet_count %></td>
+                    </tr>
+                <%end%>
+            </table>
+        <% else %>
+            <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not exist. Please try again. </h1>
+        <% end %>
+        <%= link_to 'Back', {controller: 'tweets', action: 'index'}, class: "return-btn" %><br>
+    </body>
+</div>

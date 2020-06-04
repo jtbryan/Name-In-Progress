@@ -6,7 +6,7 @@
         <a class="user">Register</a>
     </div>
     <body id="container">
-    <%= form_with(url: "tweets/new", method: "get", local: true, id: "search") do |f|%>
+    <%= form_with(url: "tweets/show", method: "get", local: true, id: "search") do |f|%>
         <%= f.label(:tweet, "Search Preference") %>
         <div id="contain-choice">
         <%= f.radio_button("pref", "hashtag", option = {checked: true}) %>

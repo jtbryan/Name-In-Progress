@@ -1,15 +1,28 @@
 class TweetsController < ApplicationController
-    def new
+    def user_exists?(user)
+        $client.user(user)
+        true
+    rescue # similar to Python's try/except
+        false
+    end
+
+    def show
         @params = request.GET
         @pref = @params.values[0]
-        @tweet = @params.values[1]
         if @pref == "hashtag"
+            @tweet = @params.values[1]
             if @tweet.count('#') == 0
                 @tweet = '#'+@tweet
             end
-            @value = $client.search(@tweet, result_type: "recent")
+            # can modify as client.search("whatevertextiwanttomine", since: "2018-10-27", until: "2018-10-30") to get tweets from a date range
+            @value = $client.search(@tweet)
         else
-            @value = $client.search(@tweet, result_type: "recent")
+            @user = @params.values[1]
+            if user_exists?(@user)
+                @value = $client.user_timeline(@user, :count => 100)
+            else
+                @value = "Error"
+            end
         end
     end 
 end

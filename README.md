@@ -13,3 +13,4 @@ This project is currently in development.
 # Installation/Dependencies
 
 ``gem install twitter`` - [https://github.com/sferik/twitter]
+--- Documentation Associated with this dependency - [https://www.rubydoc.info/gems/twitter/Twitter]
