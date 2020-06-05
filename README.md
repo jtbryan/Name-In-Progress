@@ -4,7 +4,7 @@ This is a website designed using Ruby on Rails to allow users to search for twee
 
 # Project Status
 
-This project is currently in development. 
+This project is currently ``in development``. 
 
 List of current features being added:<br>
 * User registration
