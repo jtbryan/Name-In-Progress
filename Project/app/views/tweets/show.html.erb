@@ -2,31 +2,44 @@
     <div class="navbar">
         <a href="/welcome" class="general">Home</a>
         <a class="general">About</a>
-        <a class="user">Login</a>
-        <a class="user">Register</a>
+        <div class="dropdown">
+            <a class="user">Account</a>
+            <div class="dropdown-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <a>Register</a>
+            </div>
+        </div>
     </div>
     <body id="container">
         <% if @value != "Error" %>
-            <table>
-                <tr>
-                    <th>User</th>
-                    <th>Tweet</th>
-                    <th>Favorites</th>
-                    <th>Retweets</th>
-                </tr>
-                <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
-                <% @value.take(100).collect do |item| %>
-                    <tr>
-                        <td><%= item.user.screen_name %></td>
-                        <td><%= item.text %></td>
-                        <td><%= item.favorite_count %></td>
-                        <td><%= item.retweet_count %></td>
-                    </tr>
-                <%end%>
-            </table>
+            <div id="main-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="user-name">User</th>
+                            <th id="tweet-content">Tweet</th>
+                            <th id="num-faves">Favorites</th>
+                            <th id="num-retweets">Retweets</th>
+                        </tr>
+                    </thead>
+                    <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
+                    <tbody>
+                        <% @value.take(100).collect do |item| %>
+                            <tr>
+                                <td class="name"><%= item.user.screen_name %></td>
+                                <td class="content"><%= item.text %></td>
+                                <td class="fav-count"><%= item.favorite_count %></td>
+                                <td class="retweets"><%= item.retweet_count %></td>
+                            </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
         <% else %>
-            <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not exist. Please try again. </h1>
+            <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not exist. Please try again.</h1>
         <% end %>
-        <%= link_to 'Back', {controller: 'tweets', action: 'index'}, class: "return-btn" %><br>
+        <div class="return-btn">
+            <%= link_to 'Back', {controller: 'tweets', action: 'index'} %>
+        </div>
     </body>
 </div>

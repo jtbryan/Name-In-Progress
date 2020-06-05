@@ -22,7 +22,26 @@
 }
 
 .return-btn{
+    margin-top: 50px;
     text-align: center;
+}
+
+.return-btn a{
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgb(250, 237, 237);
+    padding: 10px;
+    text-align: center;
+    border-radius: 16px;
+    color: black;
+    line-height: 25px;
+    margin: auto;
+    text-decoration: none;
+}
+
+.return-btn a:hover{
+    background-color:rgb(29, 207, 198);
 }
 
 #search{
@@ -102,6 +121,70 @@
     border: 2px solid #444;
     border-radius: 4px;
     width: 100px;
+}
+
+#main-table-container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#main-table-container table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    display: table; 
+    background-color: white;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px;
+}
+
+#main-table-container thead{
+    display: block;
+}
+
+#main-table-container thead tr{
+    height: 40px;
+    background-color: rgb(11, 142, 202);
+}
+
+#main-table-container tbody tr{
+    height: 40px;
+}
+
+#main-table-container #user-name, #main-table-container .name{
+    width: 150px;
+}
+
+#main-table-container #tweet-content, #main-table-container .content{
+    padding-left: 10px;
+    width: 700px;
+}
+
+#main-table-container #num-faves, #main-table-container .fav-count{
+    width: 100px;
+}
+
+#main-table-container #num-retweets, #main-table-container .retweets{
+    width: 100px;
+}
+
+#main-table-container tbody{
+    display: block;
+    height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#main-table-container tbody::-webkit-scrollbar{
+    display: none;
+}
+
+#main-table-container td, #main-table-container th{
+    border: 1px solid #ddd;
+}
+
+#main-table-container td:nth-child(2){
+    text-align: left;
 }
 
 #userError{

@@ -2,8 +2,13 @@
     <div class="navbar">
         <a href="/welcome" class="general">Home</a>
         <a class="general">About</a>
-        <a class="user">Login</a>
-        <a class="user">Register</a>
+        <div class="dropdown">
+            <a class="user">Account</a>
+            <div class="dropdown-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <a>Register</a>
+            </div>
+        </div>
     </div>
     <body id="container">
     <%= form_with(url: "tweets/show", method: "get", local: true, id: "search") do |f|%>
