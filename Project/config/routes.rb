@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :user
   resources :tweets
+  resources :user
+
   resources :welcome
 
   root 'welcome#index'

@@ -21,27 +21,31 @@
     font: sans-serif;
 }
 
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
 .return-btn{
-    margin-top: 50px;
-    text-align: center;
+    margin-top: 50px !important;
+    text-align: center !important;
 }
 
-.return-btn a{
-    display: block;
-    width: 115px;
-    height: 25px;
-    background: rgb(250, 237, 237);
-    padding: 10px;
-    text-align: center;
-    border-radius: 16px;
-    color: black;
-    line-height: 25px;
-    margin: auto;
-    text-decoration: none;
+.return-btn .return{
+    display: block !important;
+    width: 115px !important;
+    height: 25px !important;
+    background: rgb(250, 237, 237) !important;
+    padding: 10px !important;
+    text-align: center !important;
+    border-radius: 16px !important;
+    color: black !important;
+    line-height: 25px !important;
+    margin: auto !important;
+    text-decoration: none !important;
 }
 
-.return-btn a:hover{
-    background-color:rgb(29, 207, 198);
+.return-btn .return:hover{
+    background-color:rgb(29, 207, 198) !important;
 }
 
 #search{

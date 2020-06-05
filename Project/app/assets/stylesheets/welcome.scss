@@ -7,11 +7,11 @@
     100%{background-position: -2122px 0;}
 }
 
-.dropdown {
+.dropdown-list {
     float: right;
 }
 
-.dropdown-content {
+.dropdown-user-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -22,7 +22,7 @@
     right: 0;
 }
 
-.dropdown-content a {
+.dropdown-user-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -31,30 +31,32 @@
     background-color: rgb(28, 164, 218);
 }
 
-.dropdown-content a:hover {
+.dropdown-user-content a:hover {
     background-color: white;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-list:hover .dropdown-user-content {
     display: block;
 }
 
-.navbar{
+.hash-navbar{
     background-color: rgb(28, 164, 218);
     overflow: hidden;
     margin: 0px;
     height: 54px;
 }
 
-.navbar .general{
+.hash-navbar .general{
     float: left;
+    padding-top: 10px;
 }
 
-.navbar .user{
+.hash-navbar .user{
     float: right;
+    padding-top: 10px;
 }
 
-.navbar a{
+.hash-navbar a{
     color: black;
     text-align: center;
     padding: 14px 16px;
@@ -62,7 +64,7 @@
     font-size: 17pt;
 }
 
-.navbar a:hover{
+.hash-navbar a:hover{
     background-color: white;
     color: black;
     cursor: pointer;
@@ -79,6 +81,10 @@
     animation: tweet_anim 75s linear infinite;
     text-align: center;
     font: sans-serif;
+}
+
+#page1 *, ::after, ::before {
+    box-sizing: content-box !important;
 }
 
 #page1 .button_to input[type=submit] {
@@ -105,6 +111,7 @@
     display: inline-block;
     border-radius: 25px;
     background-image: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%);
+    text-decoration: none;
 }
 
 #page1 .start-btn:hover{
@@ -113,8 +120,8 @@
 }
 
 #title {
-    padding-top: 200px;
-    padding-bottom: 50px;
+    padding-top: 210px;
+    padding-bottom: 100px;
     font-size: 49pt;
     color: black;
     font: arial;
