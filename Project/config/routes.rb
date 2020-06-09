@@ -4,10 +4,17 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :tweets
-  resources :user
+  resources :user, :path => 'account', :as => 'account' do
+    collection do
+      get :register
+    end
+    resources :tweets
+  end
+  
 
-  resources :welcome
+
+  resources :tweets
+  resources :home, controller: 'welcome'
 
   root 'welcome#index'
   
