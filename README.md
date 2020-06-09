@@ -4,7 +4,7 @@ This is a website designed using Ruby on Rails to allow users to search for twee
 
 # Project Status
 
-This project is currently in development. 
+This project is currently ``in development``. 
 
 List of current features being added:<br>
 * User registration
@@ -13,7 +13,6 @@ List of current features being added:<br>
 * Delete account
 * Add more filters to search preferences
 * Update the UI/UX
-<br>
 
 # Project Screenshots
 
@@ -44,7 +43,7 @@ To run this website, perform the following steps:
 
 To properly use this website, it is required that you obtain a set of Consumer API keys by registering this app on -[https://developer.twitter.com/en] as it is required for the twitter API.
 
-After obtaining this set of keys, you can then add a file to the path ``Project/config/initializer/file_name.rb`` containing the followign information: 
+After obtaining this set of keys, you can then add a file to the path ``Project/config/initializer/file_name.rb`` containing the following information: 
 
 ```
 config = {
