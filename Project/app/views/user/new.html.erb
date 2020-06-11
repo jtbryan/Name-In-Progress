@@ -1,15 +1,22 @@
 <div id="page4">
     <div class="hash-navbar">
-        <a href="/welcome" class="general">Home</a>
+        <a href="/home" class="general">Home</a>
         <a class="general">About</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
                 <%= link_to 'Login', {controller: 'user', action: 'index'} %>
-                <a>Register</a>
+                <%= link_to 'Register', {controller: 'user', action: 'register'} %>
             </div>
         </div>
     </div>
+    <form action="/account/show" method="GET">
+        <input type="text" name="register[name]" placeholder="Username..." maxlength=30>
+        <input type="email" name="register[email]" placeholder="Email..." maxlength=30>
+        <input type="password" name="register[pass]" placeholder="Password..." maxlength=30>
+        <input type="password" name="register[pass]" placeholder="Confirm Password..." maxlength=30>
+        <input type="submit" name="submit">
+    </form>
     <body id="container">
         
     </body>
