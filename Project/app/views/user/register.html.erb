@@ -1,0 +1,57 @@
+<div id="page4">
+    <div class="hash-navbar">
+        <a href="/home" class="general">Home</a>
+        <a class="general">About</a>
+        <div class="dropdown-list">
+            <a class="user">Account</a>
+            <div class="dropdown-user-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+            </div>
+        </div>
+    </div>
+    <body id="container">
+    <div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<div class="brand_logo"></div>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form action="/account/new" method="GET">
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="register[name]" placeholder="Username..." maxlength=30 class="form-control input_user">
+						</div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+							</div>
+                            <input type="email" name="register[email]" placeholder="Email..." maxlength=30 class="form-control input_email">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="register[pass]" placeholder="Password..." maxlength=30 class="form-control input_pass">
+						</div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+                            <input type="password" name="register[confirm_pass]" placeholder="Confirm Password..." maxlength=30 class="form-control input_pass">
+						</div>
+						<div class="d-flex justify-content-center mt-3 login_container">
+							<input type="submit" value="Register" class="btn login_btn">
+				        </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    </body>
+</div>

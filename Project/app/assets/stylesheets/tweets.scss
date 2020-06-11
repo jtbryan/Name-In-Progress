@@ -1,0 +1,198 @@
+// Place all the styles related to the Tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#container{
+    background-image: linear-gradient( rgba(61, 201, 243, 0.705) 0%, rgb(154, 228, 250) 51%, rgb(59, 176, 230) 100%);
+    background-attachment: fixed;
+}
+
+#contain-choice{
+    display: block;
+}
+
+#page2{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align: center;
+    font: sans-serif;
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
+.return-btn{
+    margin-top: 50px !important;
+    text-align: center !important;
+}
+
+.return-btn .return{
+    display: block !important;
+    width: 115px !important;
+    height: 25px !important;
+    background: rgb(250, 237, 237) !important;
+    padding: 10px !important;
+    text-align: center !important;
+    border-radius: 16px !important;
+    color: black !important;
+    line-height: 25px !important;
+    margin: auto !important;
+    text-decoration: none !important;
+}
+
+.return-btn .return:hover{
+    background-color:rgb(29, 207, 198) !important;
+}
+
+#search{
+    padding-top: 200px;
+    display: block;
+}
+
+#search label{
+    font-size: 18pt;
+}
+
+#search input[type=text]{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 300px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 18pt;
+    text-indent: 10%;
+}
+
+#search input[type=text]:focus{
+    outline-width: 0;
+}
+
+#search input[type=radio]{
+    position: fixed;
+    opacity: 0;
+    margin-top: 10px;
+    width: 144px;
+    height: 47px;
+    margin-top: -1px
+}
+
+#search input[type=radio]:hover{
+    cursor: pointer;
+}
+
+#search input[type=radio]:hover + p{
+    background-color:rgb(29, 207, 198);
+}
+
+#search input[type=radio]:checked + p{
+    background-color:rgb(187, 255, 252);
+    border-color: rgb(68, 204, 197);
+}
+
+#search input[type=submit]{
+    margin-top: 30px;
+    width: 100px;
+    height: 50px;
+    border-radius: 16px;
+}
+
+#search input[type=submit]:hover{
+    background-color:rgb(29, 207, 198);
+}
+
+#search input[type=submit]:focus{
+    outline-width: 0;
+}
+
+#search input[type=submit]:hover{
+    cursor: pointer;
+}
+
+#search p:hover{
+    background-color: #dfd;
+}
+
+#search p{
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    width: 100px;
+}
+
+#main-table-container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#main-table-container table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    display: table; 
+    background-color: white;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px;
+}
+
+#main-table-container thead{
+    display: block;
+}
+
+#main-table-container thead tr{
+    height: 40px;
+    background-color: rgb(11, 142, 202);
+}
+
+#main-table-container tbody tr{
+    height: 40px;
+}
+
+#main-table-container #user-name, #main-table-container .name{
+    width: 150px;
+}
+
+#main-table-container #tweet-content, #main-table-container .content{
+    padding-left: 10px;
+    width: 700px;
+}
+
+#main-table-container #num-faves, #main-table-container .fav-count{
+    width: 100px;
+}
+
+#main-table-container #num-retweets, #main-table-container .retweets{
+    width: 100px;
+}
+
+#main-table-container tbody{
+    display: block;
+    height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#main-table-container tbody::-webkit-scrollbar{
+    display: none;
+}
+
+#main-table-container td, #main-table-container th{
+    border: 1px solid #ddd;
+}
+
+#main-table-container td:nth-child(2){
+    text-align: left;
+}
+
+#userError{
+    text-align: center;
+    padding-top: 200px;
+}

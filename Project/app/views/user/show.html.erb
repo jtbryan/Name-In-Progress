@@ -1,0 +1,45 @@
+<div id="user-page">
+    <div class="hash-navbar">
+        <a href="/home" class="general">Home</a>
+        <a class="general">About</a>
+        <div class="dropdown-list">
+            <a class="user">Account</a>
+            <div class="dropdown-user-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+            </div>
+        </div>
+    </div>
+    <body id="container">
+		<div id="header-container">
+			<h1>Welcome back, <%= @user.name %>!</h1>
+		</div>
+		<div id="user-tweets">
+			Your tweets
+            <table>
+                <thead>
+                    <tr>
+                        <th id="user-name">User</th>
+                        <th id="tweet-content">Tweet</th>
+                        <th id="num-faves">Favorites</th>
+                        <th id="num-retweets">Retweets</th>
+                    </tr>
+                </thead>
+                <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
+                <tbody>
+                    <% @user.tweets do |item| %>
+                        <tr>
+                        	<td class="name"><%= item.name %></td>
+                            <td class="content"><%= item.title %></td>
+                            <td class="fav-count"><%= item.favorites %></td>
+                            <td class="retweets"><%= item.retweets %></td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+		</div>
+        <%= session[:user_id] %><br>
+		<%= @user.id %>
+    </body>
+</div>
+

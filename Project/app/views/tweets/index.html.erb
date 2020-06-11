@@ -1,0 +1,26 @@
+<div id="page2">
+    <div class="hash-navbar">
+        <a href="/home" class="general">Home</a>
+        <a class="general">About</a>
+        <div class="dropdown-list">
+            <a class="user">Account</a>
+            <div class="dropdown-user-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+            </div>
+        </div>
+    </div>
+    <body id="container">
+    <%= form_with(url: "tweets/show", method: "get", local: true, id: "search") do |f|%>
+        <%= f.label(:tweet, "Search Preference") %>
+        <div id="contain-choice">
+        <%= f.radio_button("pref", "hashtag", option = {checked: true}) %>
+        <p>Hashtag</p>
+        <%= f.radio_button("pref", "user") %>
+        <p>User</p>
+        </div>
+        <%= f.text_field(:tweet, :maxlength => 21, :placeholder => "Search...", :required => true) %>
+        <%= f.submit("Submit") %>
+    <% end %>
+    </body>
+</div>

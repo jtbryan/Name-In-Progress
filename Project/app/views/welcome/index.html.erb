@@ -1,0 +1,19 @@
+<div id="page1">
+    <div class="hash-navbar">
+        <a href="/home" class="general">Home</a>
+        <a class="general">About</a>
+        <div class="dropdown-list">
+            <a class="user">Account</a>
+            <div class="dropdown-user-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+            </div>
+        </div>
+    </div>
+    <header>
+        <h1 id="title">HashScrape</h1>
+    </header>
+    <body>
+        <%= link_to 'Get Started', {controller: 'tweets', action: 'index'}, class: "start-btn" %><br>
+    </body>
+</div>
