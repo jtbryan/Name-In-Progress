@@ -1,4 +1,4 @@
-<div id="page4">
+<div id="user-page">
     <div class="hash-navbar">
         <a href="/home" class="general">Home</a>
         <a class="general">About</a>
@@ -11,50 +11,35 @@
         </div>
     </div>
     <body id="container">
-    <div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<div class="brand_logo"></div>
-					</div>
-				</div>
-				<div class="d-flex justify-content-center form_container">
-					<%= form_with model: @user, local: true do |f|%>
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-                            <%= f.text_field(:email, :maxlength => 30, :placeholder => "Email...", :required => true, :class => "form-control input_user") %><br>
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-                                <%= f.password_field(:pass, :maxlength => 30, :placeholder => "Password...", :required => true, :class => "form-control input_pass") %><br>
-						    </div>
-						    <div class="form-group">
-							    <div class="custom-control custom-checkbox">
-								    <input type="checkbox" class="custom-control-input" id="customControlInline">
-								    <label class="custom-control-label" for="customControlInline">Remember me</label>
-							    </div>
-						    </div>
-							<div class="d-flex justify-content-center mt-3 login_container">
-                                <%= f.submit("Login", :class => "btn login_btn") %>
-				            </div>
-					<% end %>
-				</div>
-		
-				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="user/new" class="ml-2">Sign Up</a>
-					</div>
-					<div class="d-flex justify-content-center links">
-						<a href="#">Forgot your password?</a>
-					</div>
-				</div>
-			</div>
+		<div id="header-container">
+			<h1>Welcome back, <%= @user.name %>!</h1>
 		</div>
-	</div>
+		<div id="user-tweets">
+			Your tweets
+            <table>
+                <thead>
+                    <tr>
+                        <th id="user-name">User</th>
+                        <th id="tweet-content">Tweet</th>
+                        <th id="num-faves">Favorites</th>
+                        <th id="num-retweets">Retweets</th>
+                    </tr>
+                </thead>
+                <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
+                <tbody>
+                    <% @user.tweets do |item| %>
+                        <tr>
+                        	<td class="name"><%= item.name %></td>
+                            <td class="content"><%= item.title %></td>
+                            <td class="fav-count"><%= item.favorites %></td>
+                            <td class="retweets"><%= item.retweets %></td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+		</div>
+        <%= session[:user_id] %><br>
+		<%= @user.id %>
     </body>
 </div>
+

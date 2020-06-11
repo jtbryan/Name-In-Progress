@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     end
     resources :tweets
   end
-  
-
 
   resources :tweets
   resources :home, controller: 'welcome'

@@ -1,0 +1,49 @@
+<div id="page3">
+    <div class="hash-navbar">
+        <a href="/welcome" class="general">Home</a>
+        <a class="general">About</a>
+        <div class="dropdown-list">
+            <a class="user">Account</a>
+            <div class="dropdown-user-content">
+                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                <a>Register</a>
+            </div>
+        </div>
+    </div>
+    <body id="container">
+        <% if @value != "Error" %>
+            <% if @value.size == 0 %>
+                <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not have any recent tweets. Please try again. </h1>
+            <% else %>
+                <div id="main-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="user-name">User</th>
+                                <th id="tweet-content">Tweet</th>
+                                <th id="num-faves">Favorites</th>
+                                <th id="num-retweets">Retweets</th>
+                            </tr>
+                        </thead>
+                        <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
+                        <tbody>
+                            <% @value.take(100).collect do |item| %>
+                                <tr>
+                                    <td class="name"><%= item.user.screen_name %></td>
+                                    <td class="content"><%= item.text %></td>
+                                    <td class="fav-count"><%= item.favorite_count %></td>
+                                    <td class="retweets"><%= item.retweet_count %></td>
+                                </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
+                <% end %>
+            </div>
+        <% else %>
+            <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not exist. Please try again.</h1>
+        <% end %>
+        <div class="return-btn">
+            <%= link_to 'Back', {controller: 'tweets', action: 'index'}, :class => "return" %>
+        </div>
+    </body>
+</div>

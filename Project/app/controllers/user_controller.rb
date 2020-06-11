@@ -24,12 +24,12 @@ class UserController < ApplicationController
       if  URI::MailTo::EMAIL_REGEXP.match(username_or_email)    
         user = User.find_by_email(username_or_email)
       else
-        user = User.find_by_username(username_or_email)
+        user = User.find_by_name(username_or_email)
       end
-      # TODO: Fix user.pass not matching login_password
-      if user && user.pass == login_password
+      if user && BCrypt::Password.new(user.pass) == login_password
         return user
       else
+        Rails.logger.debug "User failed login: #{user}"  # view this in log/development.log
         return false
       end
     end
@@ -44,7 +44,9 @@ class UserController < ApplicationController
 
       # saves the article to the database 
       if @user
-          redirect_to '/'
+          #session.delete(:user_id)
+          session[:user] = @user.id
+          redirect_to account_path(@user)
       else
           flash[:login_error] = ['Invalid credentials']
           redirect_to '/account'
@@ -52,24 +54,32 @@ class UserController < ApplicationController
     end
   
     def new
-      if self.class.checkUser(user_params[:name]) || self.class.checkEmail(user_params[:email])
+      if user_params[:pass] != user_params[:confirm_pass]
+        flash[:error] = "Passwords do not match"
+        #redirect_to '/account/register'
+      elsif self.class.checkUser(user_params[:name]) || self.class.checkEmail(user_params[:email])
         flash[:error] = "User already exists"
-        redirect_to '/account/register'
+        #redirect_to '/account/register'
       else
-        @user = User.new(user_params)
+        @user = User.new(user_params.except(:confirm_pass))
         @user.pass = BCrypt::Password.create(user_params[:pass])
         if @user.save
-          session[:user_id] = @user.id
-          redirect_to '/'
+          #session.delete(:user_id)
+          session[:user] = @user.id
+          redirect_to account_path(@user)
         else
           flash[:error] = @user.errors.full_messages
         end
       end
     end
 
+    def show
+      @user = User.find(params[:id])
+    end
+
   private
   def user_params
-      params.require(:register).permit(:name, :email, :pass)
+      params.require(:register).permit(:name, :email, :pass, :confirm_pass)
   end
   def login_params
       params.require(:login).permit(:email, :pass)
