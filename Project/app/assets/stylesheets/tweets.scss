@@ -173,6 +173,19 @@
     width: 100px;
 }
 
+#main-table-container #save-column, #main-table-container .save{
+    width: 120px;
+}
+
+#main-table-container #del-tweets, #main-table-container .delete{
+    width: 100px;
+}   
+
+#main-table-container .save button:hover{
+    cursor: pointer;
+    background-color:rgb(29, 207, 198);
+}
+
 #main-table-container tbody{
     display: block;
     height: 700px;

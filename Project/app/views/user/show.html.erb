@@ -5,10 +5,10 @@
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
-                <% if session[:test] %>
-                    <% found_user = User.find(session[:test]) %>
+                <% if session[:user_id2] %>
+                    <% found_user = User.find(session[:user_id2]) %>
                     <%= link_to 'Your account', account_path(found_user) %>
-                    <%= link_to 'Logout', '/', :onclick => "'#{session[:test] = nil}'" %>
+                    <%= link_to 'Logout', logout_account_index_path() %>
                 <% else %>
                     <%= link_to 'Login', {controller: 'user', action: 'index'} %>
                     <%= link_to 'Register', {controller: 'user', action: 'register'} %>
@@ -21,31 +21,23 @@
 			<h1>Welcome back, <%= @user.name %>!</h1>
 		</div>
 		<div id="user-tweets">
-			Your tweets
-            <table>
-                <thead>
-                    <tr>
-                        <th id="user-name">User</th>
-                        <th id="tweet-content">Tweet</th>
-                        <th id="num-faves">Favorites</th>
-                        <th id="num-retweets">Retweets</th>
-                    </tr>
-                </thead>
-                <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
-                <tbody>
-                    <% @user.tweets do |item| %>
+            <div id="main-table-container">
+                <table>
+                    <thead>
                         <tr>
-                        	<td class="name"><%= item.name %></td>
-                            <td class="content"><%= item.title %></td>
-                            <td class="fav-count"><%= item.favorites %></td>
-                            <td class="retweets"><%= item.retweets %></td>
+                            <th id="user-name">User</th>
+                            <th id="tweet-content">Tweet</th>
+                            <th id="num-faves">Favorites</th>
+                            <th id="num-retweets">Retweets</th>
+                            <th id="del-tweets"></th>
                         </tr>
-                    <%end%>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <%= render @user.tweets %>
+                    </tbody>
+                </table>
+            </div>
 		</div>
-        <%= session[:test] %><br>
-		<%= @user.id %>
     </body>
 </div>
 

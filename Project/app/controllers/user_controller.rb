@@ -41,12 +41,10 @@ class UserController < ApplicationController
     # POST /user
     def create
       @user = self.class.authenticate(login_params[:email], login_params[:pass])
-
-      # saves the article to the database 
+ 
       if @user
-          #session.delete(:user_id)
-          session[:test] = @user.id
-          redirect_to account_path(@user)
+          valid = BCrypt::Password.create("true")
+          redirect_to account_path(@user, register: valid)
       else
           flash[:login_error] = ['Invalid credentials']
           redirect_to '/account'
@@ -56,17 +54,16 @@ class UserController < ApplicationController
     def new
       if user_params[:pass] != user_params[:confirm_pass]
         flash[:error] = "Passwords do not match"
-        #redirect_to '/account/register'
+        redirect_to '/account/register'
       elsif self.class.checkUser(user_params[:name]) || self.class.checkEmail(user_params[:email])
         flash[:error] = "User already exists"
-        #redirect_to '/account/register'
+        redirect_to '/account/register'
       else
         @user = User.new(user_params.except(:confirm_pass))
         @user.pass = BCrypt::Password.create(user_params[:pass])
         if @user.save
-          #session.delete(:user_id)
-          session[:test] = @user.id
-          redirect_to account_path(@user)
+          valid = BCrypt::Password.create("true")
+          redirect_to account_path(@user, register: valid)
         else
           flash[:error] = @user.errors.full_messages
         end
@@ -74,9 +71,24 @@ class UserController < ApplicationController
     end
 
     def show
-      @user = User.find(params[:id])
-      session[:test] = @user.id
+      if session[:user_id2] != nil
+        @user = User.find(params[:id])
+        session[:user_id2] = @user.id
+      elsif request.GET.values.length > 0
+        if BCrypt::Password.new(request.GET.values[0]) != "true"
+          redirect_to request.referer
+        end
+        @user = User.find(params[:id])
+        session[:user_id2] = @user.id
+      else
+        redirect_to("/account")
+      end
     end
+
+    def logout
+      session[:user_id2] = nil
+      redirect_to("/")
+    end 
 
   private
   def user_params
