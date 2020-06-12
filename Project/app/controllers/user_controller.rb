@@ -45,7 +45,7 @@ class UserController < ApplicationController
       # saves the article to the database 
       if @user
           #session.delete(:user_id)
-          session[:user] = @user.id
+          session[:test] = @user.id
           redirect_to account_path(@user)
       else
           flash[:login_error] = ['Invalid credentials']
@@ -65,7 +65,7 @@ class UserController < ApplicationController
         @user.pass = BCrypt::Password.create(user_params[:pass])
         if @user.save
           #session.delete(:user_id)
-          session[:user] = @user.id
+          session[:test] = @user.id
           redirect_to account_path(@user)
         else
           flash[:error] = @user.errors.full_messages
@@ -75,6 +75,7 @@ class UserController < ApplicationController
 
     def show
       @user = User.find(params[:id])
+      session[:test] = @user.id
     end
 
   private

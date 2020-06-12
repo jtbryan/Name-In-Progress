@@ -1,12 +1,18 @@
 <div id="page3">
     <div class="hash-navbar">
-        <a href="/welcome" class="general">Home</a>
+        <a href="/home" class="general">Home</a>
         <a class="general">About</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
-                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
-                <a>Register</a>
+                <% if session[:test] %>
+                    <% found_user = User.find(session[:test]) %>
+                    <%= link_to 'Your account', account_path(found_user) %>
+                    <%= link_to 'Logout', '/', :onclick => "'#{session[:test] = nil}'" %>
+                <% else %>
+                    <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                    <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+                <% end %>
             </div>
         </div>
     </div>
