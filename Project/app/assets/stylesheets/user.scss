@@ -76,3 +76,160 @@
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #c0392b !important;
     }
+
+#change-submit{
+    margin-left: 40%;
+}
+
+#change-submit button:hover{
+    cursor: pointer;
+    background-color:rgb(29, 207, 198);
+}
+
+#empty-tweets{
+    text-align: center;
+    position: relative;
+    margin-top: 25%;
+    width: 500px;
+    padding-left: 80%;
+    flex: 1;
+}
+
+#empty-tweets button{
+    cursor: pointer;
+}
+
+#empty-tweets button:hover{
+    background-color:rgb(29, 207, 198);
+}
+
+#header-container{
+    position: relative;
+    height: 350px;
+    width: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    background-color: white;
+    border: solid black;
+    border-radius: 15px;
+    margin-left: 10%;
+    flex: 0 0 15%;
+}
+
+#header-container h4{
+    padding-top: 20px;
+    padding-left: 15px;
+}
+
+#user-container{
+    background-image: linear-gradient( rgba(61, 201, 243, 0.705) 0%, rgb(154, 228, 250) 51%, rgb(59, 176, 230) 100%);
+    background-attachment: fixed;
+}
+#user-container #user-table-container{
+    text-align: center;
+    margin-top: -10%;
+    margin-left: 4%;
+    flex: 1;
+}
+
+#user-container #user-table-container table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    display: table; 
+    background-color: white;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px;
+}
+
+#user-container #user-table-container thead tr{
+    height: 40px;
+    background-color: rgb(11, 142, 202);
+}
+
+#user-container #user-table-container tbody tr{
+    height: 40px;
+}
+
+#user-container #user-table-container #user-name, #user-container #user-table-container .name{
+    width: 150px;
+}
+
+#user-container #user-table-container #tweet-content, #user-container #user-table-container .content{
+    padding-left: 10px;
+    width: 700px;
+}
+
+#user-container #user-table-container #num-faves, #user-container #user-table-container .fav-count{
+    width: 100px;
+}
+
+#user-container #user-table-container #num-retweets, #user-container #user-table-container .retweets{
+    width: 100px;
+}
+
+#user-container #user-table-container #del-tweets, #user-container #user-table-container .delete{
+    width: 180px;
+    height: 50px;
+}   
+
+#user-container #user-table-container thead{
+    display: block;
+}
+
+#user-container #user-table-container tbody{
+    display: block;
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#user-container #user-table-container tbody::-webkit-scrollbar{
+    display: none;
+}
+
+#user-container #user-table-container td{
+    border: 1px solid #ddd;
+}
+
+#user-container #user-table-container td:nth-child(2){
+    text-align: left;
+}
+
+.user-items{
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+#user-menu{
+    display: flex;
+    margin-top: 10%;
+}
+
+#return{
+    position: absolute;
+    padding-top: 2%;
+    padding-left: 30%;
+}
+
+.del-btn{
+    text-align: center !important;
+}
+
+.del-btn .delete-link{
+    display: block;
+    height: 25px;
+    width: 100px;
+    background: rgb(250, 237, 237);
+    padding: 6px;
+    text-align: center;
+    border-radius: 16px;
+    color: black;
+    margin: auto;
+    text-decoration: none;
+    border: solid black;
+}
+
+.del-btn .delete-link:hover{
+    background-color:rgb(29, 207, 198) !important;
+}

@@ -1,16 +1,21 @@
 <div id="page3">
     <div class="hash-navbar">
-        <a href="/welcome" class="general">Home</a>
-        <a class="general">About</a>
+        <a href="/home" class="general">Home</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
-                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
-                <a>Register</a>
+                <% if session[:user_id2] %>
+                    <% found_user = User.find(session[:user_id2]) %>
+                    <%= link_to 'Your account', account_path(found_user) %>
+                    <%= link_to 'Logout', logout_account_index_path() %>
+                <% else %>
+                    <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                    <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+                <% end %>
             </div>
         </div>
     </div>
-    <body id="container">
+    <body id="tweet-container">
         <% if @value != "Error" %>
             <% if @value.size == 0 %>
                 <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not have any recent tweets. Please try again. </h1>
@@ -23,17 +28,35 @@
                                 <th id="tweet-content">Tweet</th>
                                 <th id="num-faves">Favorites</th>
                                 <th id="num-retweets">Retweets</th>
+                                <% if @logged_user %>
+                                    <th id="save-column"></th>
+                                <% end %>
                             </tr>
                         </thead>
-                        <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
                         <tbody>
                             <% @value.take(100).collect do |item| %>
-                                <tr>
-                                    <td class="name"><%= item.user.screen_name %></td>
-                                    <td class="content"><%= item.text %></td>
-                                    <td class="fav-count"><%= item.favorite_count %></td>
-                                    <td class="retweets"><%= item.retweet_count %></td>
-                                </tr>
+                                <% if @logged_user %>
+                                    <%= form_with(model: [@logged_user, @logged_user.tweets.build], local: true) do |f|  %>
+                                        <tr>
+                                            <td class="name"><%= item.user.screen_name %></td>
+                                            <%= f.hidden_field :name, :value => item.user.screen_name %>
+                                            <td class="content"><%= item.text %></td>
+                                            <%= f.hidden_field :title, :value => item.text %>
+                                            <td class="fav-count"><%= item.favorite_count %></td>
+                                            <%= f.hidden_field :favorites, :value => item.favorite_count %>
+                                            <td class="retweets"><%= item.retweet_count %></td>
+                                            <%= f.hidden_field :retweets, :value => item.retweet_count %>
+                                            <td class="save"><button type="submit">Save Tweet</button></td>
+                                        </tr>
+                                    <%end%>
+                                <% else %>
+                                        <tr>
+                                            <td class="name"><%= item.user.screen_name %></td>
+                                            <td class="content"><%= item.text %></td>
+                                            <td class="fav-count"><%= item.favorite_count %></td>
+                                            <td class="retweets"><%= item.retweet_count %></td>
+                                        </tr>
+                                <%end%>
                             <%end%>
                         </tbody>
                     </table>

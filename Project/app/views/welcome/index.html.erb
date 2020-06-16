@@ -1,12 +1,31 @@
+<script>
+
+$(function(){
+     var x = 0;
+     var y = 0;
+     setInterval(function(){
+         x-=1;
+         y-=1;
+         $('#page1').css('background-position', x + 'px ' + y + 'px');
+     }, 50);
+})
+
+</script>
+
 <div id="page1">
     <div class="hash-navbar">
-        <a href="/welcome" class="general">Home</a>
-        <a class="general">About</a>
+        <a href="/home" class="general">Home</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
-                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
-                <a>Register</a>
+                <% if session[:user_id2] %>
+                    <% found_user = User.find(session[:user_id2]) %>
+                    <%= link_to 'Your account', account_path(found_user) %>
+                    <%= link_to 'Logout', logout_account_index_path() %>
+                <% else %>
+                    <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                    <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+                <% end %>
             </div>
         </div>
     </div>

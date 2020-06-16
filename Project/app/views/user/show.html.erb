@@ -1,16 +1,104 @@
-<div id="page4">
+<script>  
+
+    function checkButton(){
+        if($("#change-email").css('display') == "none" && $("#change-name").css('display') == "none"){
+            $("#change-submit").hide();
+        }
+        else{
+            $("#change-submit").show();
+        }        
+    }
+
+    $("#i-name a").click(function(e){
+        e.preventDefault();
+        $("#i-name").hide();
+        $("#change-name").show();
+        checkButton()
+    })
+    $("#i-email a").click(function(e){
+        e.preventDefault();
+        $("#i-email").hide();
+        $("#change-email").show();
+        checkButton()
+    })
+    $("#change-name a").click(function(e){
+        e.preventDefault();
+        $("#change-name").hide();
+        $("#i-name").show();
+        checkButton()
+    })
+    $("#change-email a").click(function(e){
+        e.preventDefault();
+        $("#change-email").hide();        
+        $("#i-email").show();
+        checkButton()
+    })
+
+</script>
+
+<div id="user-page">
     <div class="hash-navbar">
-        <a href="/welcome" class="general">Home</a>
-        <a class="general">About</a>
+        <a href="/home" class="general">Home</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
-                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
-                <a>Register</a>
+                <% if session[:user_id2] %>
+                    <% found_user = User.find(session[:user_id2]) %>
+                    <%= link_to 'Your account', account_path(found_user) %>
+                    <%= link_to 'Logout', logout_account_index_path() %>
+                <% else %>
+                    <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                    <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+                <% end %>
             </div>
         </div>
     </div>
-    <body id="container">
-        
+    <body id="user-container">
+        <div id="user-menu">
+		    <div id="header-container">
+			    <h4>Welcome back!</h4>
+                <br>
+                <%= form_tag account_path(@user), :method => :put do %>
+                    <div id="change-name" class="user-items" style="display:none"><input  type="text" name="newname" value=<%=@user.name%>> <a href="#">Cancel</a></div>
+                    <p id="i-name" class="user-items"><strong>Username:</strong> <%= @user.name %>  <a href="#">Edit</a></p>
+                    <div id="change-email" class="user-items" style="display:none"><input type="email" name="newemail" value=<%=@user.email%>> <a href="#">Cancel</a></div>
+                    <p id="i-email" class="user-items"><strong>E-mail:</strong> <%= @user.email %>  <a href="#">Edit</a></p>
+                    <p id="i-tweets" class="user-items"><strong>Number of tweets:</strong> <%= @user.tweets.length %></p>
+                    <input type="hidden" name="user_id" value=<%=@user.id%>>
+                    <div id="change-submit" style="display:none"><button type="submit">Submit</button></div>
+                <% end %>
+		    </div>
+		    <div id="user-tweets">
+                <% if @user.tweets.length > 0 %>
+                    <div id="user-table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th id="user-name">User</th>
+                                    <th id="tweet-content">Tweet</th>
+                                    <th id="num-faves">Favorites</th>
+                                    <th id="num-retweets">Retweets</th>
+                                    <th id="del-tweets"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%= render @user.tweets %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="return" class='return-btn'>
+                        <a class="return" href="/tweets">Search</a>
+                    </div>
+                <% else %>
+                    <div id="empty-tweets">
+                        <h3>You currently have no tweets stored</h3>
+                        <div class='return-btn'>
+                            <a class="return" href="/tweets">Search</a>
+                        </div>
+                    </div>
+                <% end %>
+		    </div>
+        </div>
     </body>
 </div>
+

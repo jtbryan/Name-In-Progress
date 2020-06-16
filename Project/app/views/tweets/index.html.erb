@@ -1,16 +1,21 @@
 <div id="page2">
     <div class="hash-navbar">
-        <a href="/welcome" class="general">Home</a>
-        <a class="general">About</a>
+        <a href="/home" class="general">Home</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
-                <%= link_to 'Login', {controller: 'user', action: 'index'} %>
-                <a>Register</a>
+                <% if session[:user_id2] %>
+                    <% found_user = User.find(session[:user_id2]) %>
+                    <%= link_to 'Your account', account_path(found_user) %>
+                    <%= link_to 'Logout', logout_account_index_path() %>
+                <% else %>
+                    <%= link_to 'Login', {controller: 'user', action: 'index'} %>
+                    <%= link_to 'Register', {controller: 'user', action: 'register'} %>
+                <% end %>
             </div>
         </div>
     </div>
-    <body id="container">
+    <body id="tweet-container">
     <%= form_with(url: "tweets/show", method: "get", local: true, id: "search") do |f|%>
         <%= f.label(:tweet, "Search Preference") %>
         <div id="contain-choice">
