@@ -1,15 +1,15 @@
 # HashScrape
 
-This is a website designed using Ruby on Rails to allow users to search for tweets correlating to certain users or certain hashtags. 
+HashScrape is a web application designed for the purpose of allowing users to search for the most recent tweets associated with either a user or a hashtag. Users also have the option of creating an account to store any tweets they might find to view later. Accounts are created using ``bcrypt's`` hashing algorithm to assure passwords are stored securely.
+
+Due to the fact this web application uses the twitter API to access tweets, this project is being left public rather than being hosted on github pages. As such, please refer to the installation page to access this application.
 
 # Project Status
 
-This project is currently ``in development``. 
-
-List of current features being added:<br>
-* User can store tweets
-* Delete account
+List of features planning to be added in the future:<br>
 * Add more filters to search preferences
+   ** Allow the user to exclude retweets
+   ** Allow the user to search for tweets within a certain date range
 * Update the UI/UX
 
 # Project Screenshots
@@ -18,7 +18,7 @@ Home Page
 
 ![alt text](/Project/app/assets/images/home.gif)
 
-Search
+Search page
 
 ![alt text](/Project/app/assets/images/Search_Page.PNG)
 
@@ -58,6 +58,6 @@ config = {
 client = Twitter::REST::Client.new(config)
 ```
 
-more information regarding this can be found here: [https://github.com/sferik/twitter]
+more information can be found here: [https://github.com/sferik/twitter]
 <br>
 
