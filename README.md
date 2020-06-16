@@ -8,8 +8,8 @@ Due to the fact this web application uses the twitter API to access tweets, this
 
 List of features planning to be added in the future:<br>
 * Add more filters to search preferences
-   ** Allow the user to exclude retweets
-   ** Allow the user to search for tweets within a certain date range
+   * Allow the user to exclude retweets
+   * Allow the user to search for tweets within a certain date range
 * Update the UI/UX
 
 # Project Screenshots
