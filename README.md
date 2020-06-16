@@ -22,6 +22,10 @@ Search page
 
 ![alt text](/Project/app/assets/images/Search_Page.PNG)
 
+Example results of a user searching for the 100 most recent tweets containing the hashtag: "#cats"
+
+![alt text](/Project/app/assets/images/result.PNG)
+
 # Installation/Dependencies
 
 ### <b>List of Dependencies used</b>
