@@ -17,8 +17,10 @@
     </div>
     <body id="tweet-container">
         <% if @value != "Error" %>
-            <% if @value.size == 0 %>
+            <% if @value.take(10).length == 0 && @pref == "user"%>
                 <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not have any recent tweets. Please try again. </h1>
+            <% elsif @value.take(10).length == 0 && @pref == "hashtag"%>
+                <h1 id="userError"> There are no recent tweets with the hashtag: <b style="color: rgb(235, 106, 106)"><%= @tweet %></b>. Please try again.</h1>
             <% else %>
                 <div id="main-table-container">
                     <table>

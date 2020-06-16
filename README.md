@@ -14,7 +14,13 @@ List of current features being added:<br>
 
 # Project Screenshots
 
-``In Progress``
+Home Page
+
+![alt text](/Project/app/assets/images/home.gif)
+
+Search
+
+![alt text](/Project/app/assets/images/Search_Page.PNG)
 
 # Installation/Dependencies
 
