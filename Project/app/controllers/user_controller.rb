@@ -99,6 +99,13 @@ class UserController < ApplicationController
       redirect_to("/")
     end 
 
+    def destroy
+      @logged_user = User.find(session[:user_id2])
+      @logged_user.destroy
+      session[:user_id2] = nil
+      redirect_to("/")
+    end 
+
   private
   def user_params
       params.require(:register).permit(:name, :email, :pass, :confirm_pass)

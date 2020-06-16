@@ -1,0 +1,7 @@
+<tr>
+    <td class="name"><%= tweet.name %></td>
+    <td class="content"><%= tweet.title %></td>
+    <td class="fav-count"><%= tweet.favorites %></td>
+    <td class="retweets"><%= tweet.retweets %></td>
+    <td class="delete"><div class="del-btn"><%= link_to 'Delete Tweet', [tweet.user, tweet], method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-link" %></div></td>
+</tr>

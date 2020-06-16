@@ -68,6 +68,7 @@
                     <div id="change-submit" style="display:none"><button type="submit">Submit</button></div>
                 <% end %>
 		    </div>
+            <div class="del-acct"><%= link_to 'Delete Account', account_path(@user), method: :delete, data: { confirm: 'Are you sure you want to delete your account?' }, class: "delete-link" %></div>
 		    <div id="user-tweets">
                 <% if @user.tweets.length > 0 %>
                     <div id="user-table-container">
