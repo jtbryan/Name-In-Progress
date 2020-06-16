@@ -2,7 +2,7 @@
 
 HashScrape is a web application designed for the purpose of allowing users the ability search for the most recent tweets associated with either a user or a hashtag. Users also have the option of creating an account to store any tweets they might find to view later. Accounts are created using ``bcrypt's`` hashing algorithm to assure passwords are stored securely.
 
-Due to the fact this web application uses the twitter API to access tweets, this project is being left public rather than being hosted on github pages. As such, please refer to the installation page to access this application.
+Due to the fact this web application uses the twitter API to access tweets, this project is being left public rather than being hosted on github pages. As such, please refer to the installation section to access this application.
 
 # Project Status
 
