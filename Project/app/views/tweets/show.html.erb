@@ -1,7 +1,6 @@
 <div id="page3">
     <div class="hash-navbar">
         <a href="/home" class="general">Home</a>
-        <a class="general">About</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">
@@ -16,7 +15,7 @@
             </div>
         </div>
     </div>
-    <body id="container">
+    <body id="tweet-container">
         <% if @value != "Error" %>
             <% if @value.size == 0 %>
                 <h1 id="userError"> User <b style="color: rgb(235, 106, 106)"><%= @user %></b> does not have any recent tweets. Please try again. </h1>
@@ -34,7 +33,6 @@
                                 <% end %>
                             </tr>
                         </thead>
-                        <!-- THIS GETS THE FIRST 100 TWEETS ASSOCIATED WITH A SPECIFIC HASHTAG-->
                         <tbody>
                             <% @value.take(100).collect do |item| %>
                                 <% if @logged_user %>

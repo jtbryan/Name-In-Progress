@@ -1,7 +1,20 @@
+<script>
+
+$(function(){
+     var x = 0;
+     var y = 0;
+     setInterval(function(){
+         x-=1;
+         y-=1;
+         $('#page1').css('background-position', x + 'px ' + y + 'px');
+     }, 50);
+})
+
+</script>
+
 <div id="page1">
     <div class="hash-navbar">
         <a href="/home" class="general">Home</a>
-        <a class="general">About</a>
         <div class="dropdown-list">
             <a class="user">Account</a>
             <div class="dropdown-user-content">

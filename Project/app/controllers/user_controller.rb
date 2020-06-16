@@ -85,6 +85,15 @@ class UserController < ApplicationController
       end
     end
 
+    # POST /user/id
+    def update
+      @user = User.find(params[:user_id])
+      @user.name = params[:newname]
+      @user.email = params[:newemail]
+      @user.save
+      redirect_to request.referer
+    end 
+
     def logout
       session[:user_id2] = nil
       redirect_to("/")

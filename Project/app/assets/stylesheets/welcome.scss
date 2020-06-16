@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-@keyframes tweet_anim{
-    0%{background-position: 0 0;}
-    100%{background-position: -2122px 0;}
-}
-
 .dropdown-list {
     float: right;
 }
@@ -44,6 +39,7 @@
     overflow: hidden;
     margin: 0px;
     height: 54px;
+    width: 100%;
 }
 
 .hash-navbar .general{
@@ -78,7 +74,6 @@
     right:0;
     background: url("twitter_logo.png");
     background-size: -50% -50%;
-    animation: tweet_anim 75s linear infinite;
     text-align: center;
     font: sans-serif;
 }

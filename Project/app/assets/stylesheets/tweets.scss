@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-#container{
+#tweet-container{
     background-image: linear-gradient( rgba(61, 201, 243, 0.705) 0%, rgb(154, 228, 250) 51%, rgb(59, 176, 230) 100%);
     background-attachment: fixed;
 }
@@ -31,17 +31,18 @@
 }
 
 .return-btn .return{
-    display: block !important;
-    width: 115px !important;
-    height: 25px !important;
-    background: rgb(250, 237, 237) !important;
-    padding: 10px !important;
-    text-align: center !important;
-    border-radius: 16px !important;
-    color: black !important;
-    line-height: 25px !important;
-    margin: auto !important;
-    text-decoration: none !important;
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgb(250, 237, 237);
+    padding: 10px;
+    text-align: center;
+    border-radius: 16px;
+    color: black;
+    line-height: 25px;
+    margin: auto;
+    text-decoration: none;
+    border: solid black;
 }
 
 .return-btn .return:hover{
@@ -128,12 +129,12 @@
     width: 100px;
 }
 
-#main-table-container{
+#tweet-container #main-table-container{
     text-align: center;
     margin-top: 50px;
 }
 
-#main-table-container table{
+#tweet-container #main-table-container table{
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
@@ -143,65 +144,61 @@
     box-shadow: 0 0 0 1px;
 }
 
-#main-table-container thead{
+#tweet-container #main-table-container thead{
     display: block;
 }
 
-#main-table-container thead tr{
+#tweet-container #main-table-container thead tr{
     height: 40px;
     background-color: rgb(11, 142, 202);
 }
 
-#main-table-container tbody tr{
+#tweet-container #main-table-container tbody tr{
     height: 40px;
 }
 
-#main-table-container #user-name, #main-table-container .name{
+#tweet-container #main-table-container #user-name, #main-table-container .name{
     width: 150px;
 }
 
-#main-table-container #tweet-content, #main-table-container .content{
+#tweet-container #main-table-container #tweet-content, #main-table-container .content{
     padding-left: 10px;
     width: 700px;
 }
 
-#main-table-container #num-faves, #main-table-container .fav-count{
+#tweet-container #main-table-container #num-faves, #main-table-container .fav-count{
     width: 100px;
 }
 
-#main-table-container #num-retweets, #main-table-container .retweets{
+#tweet-container #main-table-container #num-retweets, #main-table-container .retweets{
     width: 100px;
 }
 
-#main-table-container #save-column, #main-table-container .save{
+#tweet-container #main-table-container #save-column, #main-table-container .save{
     width: 120px;
 }
 
-#main-table-container #del-tweets, #main-table-container .delete{
-    width: 100px;
-}   
-
-#main-table-container .save button:hover{
+#tweet-container #main-table-container .save button:hover{
     cursor: pointer;
     background-color:rgb(29, 207, 198);
 }
 
-#main-table-container tbody{
+#tweet-container #main-table-container tbody{
     display: block;
     height: 700px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-#main-table-container tbody::-webkit-scrollbar{
+#tweet-container #main-table-container tbody::-webkit-scrollbar{
     display: none;
 }
 
-#main-table-container td, #main-table-container th{
+#tweet-container #main-table-container td, #main-table-container th{
     border: 1px solid #ddd;
 }
 
-#main-table-container td:nth-child(2){
+#tweet-container #main-table-container td:nth-child(2){
     text-align: left;
 }
 
